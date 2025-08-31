@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 
 interface Notebook1Props {
   isOpen: boolean;

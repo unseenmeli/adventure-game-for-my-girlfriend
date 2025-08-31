@@ -118,8 +118,8 @@ const Game = () => {
         }
       };
       
-      const addRect = (x:number,y:number,w:number,h:number,col:any,op:number,z:number,tag?:string) => {
-        const props: any[] = [k.rect(w*TILE_SIZE,h*TILE_SIZE),k.pos(x*TILE_SIZE,y*TILE_SIZE),k.color(...col),k.opacity(op),k.z(z)];
+      const addRect = (x:number,y:number,w:number,h:number,col:number[],op:number,z:number,tag?:string) => {
+        const props: any[] = [k.rect(w*TILE_SIZE,h*TILE_SIZE),k.pos(x*TILE_SIZE,y*TILE_SIZE),k.color(col[0], col[1], col[2]),k.opacity(op),k.z(z)];
         if(tag) props.push(tag);
         return k.add(props as any);
       };
