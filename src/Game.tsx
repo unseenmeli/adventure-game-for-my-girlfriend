@@ -18,7 +18,7 @@ const Game = () => {
   const [isNotebookOpen, setIsNotebookOpen] = useState(false);
   const [isNotebook1Open, setIsNotebook1Open] = useState(false);
   const [isNotebook2Open, setIsNotebook2Open] = useState(false);
-  const [isDoorUnlocked, setIsDoorUnlocked] = useState(false);
+  const [, setIsDoorUnlocked] = useState(false);
   const [showDoorInput, setShowDoorInput] = useState(false);
   const [doorInputValue, setDoorInputValue] = useState("");
   const [doorError, setDoorError] = useState(false);
@@ -59,10 +59,11 @@ const Game = () => {
       k.loadSprite("bush1", "/bush1.png");
       k.loadSprite("plump", "/plump.png");
 
-      let gameState = {
+      let gameState: any = {
         hasFlower: false,
         currentScene: 1,
         teleportCooldown: false,
+        fromScene: undefined,
         openNotebook: () => setIsNotebookOpen(true),
         openNotebook1: () => setIsNotebook1Open(true),
         openNotebook2: () => setIsNotebook2Open(true),
@@ -118,9 +119,9 @@ const Game = () => {
       };
       
       const addRect = (x:number,y:number,w:number,h:number,col:any,op:number,z:number,tag?:string) => {
-        const props = [k.rect(w*TILE_SIZE,h*TILE_SIZE),k.pos(x*TILE_SIZE,y*TILE_SIZE),k.color(...col),k.opacity(op),k.z(z)];
+        const props: any[] = [k.rect(w*TILE_SIZE,h*TILE_SIZE),k.pos(x*TILE_SIZE,y*TILE_SIZE),k.color(...col),k.opacity(op),k.z(z)];
         if(tag) props.push(tag);
-        return k.add(props);
+        return k.add(props as any);
       };
       
       const addBoundary = (x:number,y:number,w:number,h:number) => {
